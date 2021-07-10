@@ -112,4 +112,33 @@
        - 3) "realme"
        - 4) "samsung"
        - 5) "apple"
+     * The max length of a list is 232 - 1 elements (4294967295, more than 4 billion of elements per list).
+   ### Sets
+    * Redis Sets are an unordered collection of strings.
+    * In Redis, you can add, remove, and test for the existence of members in O(1) time complexity.
+    * EXAMPLE:
+      - 127.0.0.1:6379> SADD PRODUCTS LAPTOP
+      - (integer) 1
+      - 127.0.0.1:6379> SADD PRODUCTS MOBILE
+      - (integer) 1
+      - 127.0.0.1:6379> SMEMBERS PRODUCTS
+      - 1) "MOBILE"
+      - 2) "LAPTOP"
+    * The max number of members in a set is 232 - 1 (4294967295, more than 4 billion of members per set).
+   ### Sorted Sets
+     * Redis Sorted Sets are similar to Redis Sets, non-repeating collections of Strings. 
+     * The difference is, every member of a Sorted Set is associated with a score, that is used in order to take the sorted set ordered, from the smallest to the greatest score.      * While members are unique, the scores may be repeated.
+     * EXAMPLE:
+       - 127.0.0.1:6379> ZADD st 0 hello
+       - (integer) 1
+       - 127.0.0.1:6379> zadd st 0 hola
+       - (integer) 1
+       - 127.0.0.1:6379> zadd st 0 hello
+       - (integer) 0
+       - 127.0.0.1:6379> zadd st 0 indes
+       - (integer) 1
+       - 127.0.0.1:6379> zrangebyscore st 0 10
+       - 1) "hello"
+       - 2) "hola"
+       - 3) "indes"
 
