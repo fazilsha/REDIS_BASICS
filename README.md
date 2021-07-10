@@ -94,3 +94,22 @@
      * Hash data type is used to store the user's object which contains basic information of the user.
      * Here HMSET, HGETALL are commands for Redis, while user − 1 is the key.
      * Every hash can store up to 232 - 1 field-value pairs (more than 4 billion).
+    ### Lists
+     * Redis Lists are simply lists of strings, sorted by insertion order.
+     * You can add elements to a Redis List on the head or on the tail.
+     * EXAMPLE:
+       - 127.0.0.1:6379> lpush phones apple
+       - (integer) 1
+       - 127.0.0.1:6379> lrange phones 0 2
+       - 1) "apple"
+       - 127.0.0.1:6379> lpush phones samsung realme redmi nokia
+       - (integer) 5
+       - 127.0.0.1:6379> lrange phone 0 10
+       - (empty array)
+       - 127.0.0.1:6379> lrange phones 0 10
+       - 1) "nokia"
+       - 2) "redmi"
+       - 3) "realme"
+       - 4) "samsung"
+       - 5) "apple"
+
